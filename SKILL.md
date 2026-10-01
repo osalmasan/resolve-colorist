@@ -5,7 +5,7 @@ description: Use when working in DaVinci Resolve on color grading, exposure, whi
 
 # Resolve Colorist
 
-Develop a coherent look while retaining the user's creative baseline. Use the installed ResolveMCP and discover its current API. This skill prioritizes color work; the historical package name remains stable.
+Develop a coherent look while retaining the user's creative baseline. Use the installed ResolveMCP and discover its current API.
 
 ## Read for the task
 
@@ -17,17 +17,17 @@ Develop a coherent look while retaining the user's creative baseline. Use the in
 
 ## Operating contract
 
-1. Classify the request as review, technical correction, shot match, or look development. Follow its authorized scope; a review does not authorize edits.
-2. Check Resolve status and changelog. Identify the exact project, timeline, clip IDs, current grade version, node stack/layer, and target node. Selection and the clip under the playhead can differ. Resolve any consequential ambiguity before writing.
+1. Classify the request as review, technical correction, shot match, or look development. A review does not authorize grade edits, version creation or Gallery stills; unique local scratch frame exports are allowed unless the user prohibits writes. For review, skip steps 4–5.
+2. Discover available tools and check Resolve status and changelog. If the connection, running application, project or timeline is missing, report it; launch/open only within the request, never guess a project. Identify project, timeline, authorized clip IDs, current version, node stack/layer and target node. Selection and the playhead clip can differ.
 3. Establish source encoding, working space, transforms and output intent. Missing camera metadata is unknown; never infer S-Log3 from a Sony filename. Inspect representative Resolve-rendered frames and available scopes. Separate observed facts from inferred causes.
-4. Explain the intended visible change briefly. Protect the existing grade with a verified recovery point. Check version creation/copy semantics; a new version name alone does not prove a backup. For shared nodes or remote grades, establish the actual affected scope.
-5. Apply a bounded correction through a supported surface. Existing-node CDL writes set values; they are not guaranteed additive adjustments. Never fill unknown existing controls with neutral defaults. Use the API reference for argument types and node/layer targeting.
-6. Compare matching timecodes and the intended output transform. Check the subject, adjacent cuts, highlights, shadows, hue and saturation. Inspect multiple frames when illumination or motion changes. Restore temporary viewing state when safe.
+4. Explain the intended visible change briefly. Require verified preservation semantics, a recorded recovery version/artifact and an exact restore procedure, as defined in the API reference. Stop if recovery or shared-node/remote-grade scope is unknown.
+5. Apply a bounded correction through a supported surface with verified write targeting. Reading a graph layer does not select the layer for `SetCDL`. CDL writes set values, not guaranteed additive adjustments; never replace unknown existing controls with neutral defaults.
+6. Compare matching timecodes under the intended output transform. Check the subject, adjacent cuts, highlights, shadows, hue and saturation, sampling motion or lighting changes. Follow the color workflow's capture and cleanup protocol on success or failure; leave only the authorized final grade active.
 7. Report target/version/node, change, recovery, frame evidence, limitations and remaining review. Distinguish execution success, state verification and visual judgment. If numerical readback is unavailable, say so.
 
 ## Boundaries
 
-Use `run_script` by default. Files exported through supported Resolve methods do not automatically require `run_script_unsafe`; use that only for actual OS access. Keep analysis files in session scratch, away from source media.
+Use `run_script` by default. Files exported through supported Resolve methods do not automatically require `run_script_unsafe`; use that only for actual OS access. Keep analysis files in session scratch, away from source media. Use unique, non-overwriting artifact names; external uploads require authorization.
 
 Do not replace graphs, change project-wide color management, or propagate a grade merely to achieve a local correction. Use those actions only when the request covers that scope. Stop after an ambiguous mutation timeout and inspect before retrying.
 

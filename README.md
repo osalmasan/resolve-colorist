@@ -38,8 +38,8 @@ skill_parent="${CODEX_HOME:-$HOME/.codex}/skills"
 if [ -e "$skill_parent/resolve-post-production" ]; then
   echo "Skill already exists; review the existing copy before updating."
 else
-  mkdir -p "$skill_parent"
-  cp -R ./resolve-post-production "$skill_parent/resolve-post-production"
+  mkdir -p "$skill_parent/resolve-post-production"
+  cp -R ./resolve-post-production/SKILL.md ./resolve-post-production/README.md ./resolve-post-production/agents ./resolve-post-production/references "$skill_parent/resolve-post-production/"
 fi
 ```
 
@@ -66,6 +66,10 @@ If Resolve is closed or no project is open, open the intended project and retry.
 3. State the visible result you want and any colors or details to protect.
 4. For an edit, let the skill establish a recoverable baseline and confirm the available operation.
 5. Review matching before/after frames and nearby cuts in Resolve. Keep the version that serves your intent.
+
+Review mode creates no grades, versions or Gallery stills. It may export unique local scratch frames for inspection; say “no file writes” to prohibit those too. Temporary inspection state should be restored on success or failure. Frame uploads require separate authorization.
+
+Editing stops if recovery or write targeting is unverified. A new version name alone is not a verified backup, and inspecting a node-stack layer does not select the layer for CDL writes. Expect an explanation or manual steps when the available API/UI cannot safely perform the operation.
 
 ## How to prompt well
 
@@ -106,7 +110,7 @@ Review: matching before/after frames and the relevant adjacent cuts
 
 ### Develop a look
 
-> Use $resolve-post-production to develop two reversible looks on the selected hero shot: a clean natural treatment and a warmer, denser treatment with restrained saturation. Keep skin and the product accurate. Test both on the brightest and darkest shots in this scene before proposing which one to extend.
+> Use $resolve-post-production to develop two reversible looks on the selected hero shot: a clean natural treatment and a warmer, denser treatment with restrained saturation. Keep skin and the product accurate. Inspect the scene's brightest and darkest shots for comparison, but ask before applying either look beyond the hero.
 
 ### Match a reference image
 
@@ -132,7 +136,7 @@ CDL changes are absolute assignments. There was no CDL getter in the inspected A
 
 Color-page node creation, curves, qualifiers, windows, detailed wheels and OFX controls were not directly exposed in the inspected interface. Such requests may require UI-assisted work or a prepared grade artifact. Applying a DRX or copying a grade can replace the target grade. A LUT or CDL does not reproduce selective masks, tracked corrections, grain or a complete film-emulation treatment.
 
-The skill should tell you what was changed, the recovery version, what frames were reviewed, and what remains unverified. Review stills are not a substitute for checking a finished sequence on an appropriate display.
+The skill should report the target/version/layer/node, changes, recovery and restore procedure, inspected frame timecodes, cleanup failures and remaining uncertainty. Recovery fidelity, CDL layer targeting and capture transforms still require connected-build verification before live editing. Static package checks do not establish those behaviors. Review stills are not a substitute for checking a finished sequence on an appropriate display.
 
 ## Package contents and sources
 

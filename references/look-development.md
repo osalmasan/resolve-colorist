@@ -19,9 +19,9 @@ If the brief is vague, propose a restrained interpretation and develop it as a r
 
 ## Develop on representative images
 
-Choose a hero with the important subject and lighting. Also test a bright shot, a shadow-heavy shot, saturated colors and a different camera/lighting setup when present. Keep exposure/white-balance corrections separable from the reusable look wherever the existing graph permits.
+Choose a hero within the authorized clip set. Test bright shots, shadow-heavy shots, saturated colors and different camera/lighting setups within that set when present. Inspecting another shot for comparison does not authorize grading it; request expanded scope before applying a candidate elsewhere. Keep exposure/white-balance corrections separable from the reusable look wherever the existing graph permits.
 
-Create clearly named versions such as `look-warm-v01` while preserving the baseline. For an open exploration, two purposeful alternatives are usually more useful than many barely different versions. Explain the perceptual difference rather than assigning an arbitrary “cinematic score.”
+For authorized edits, create uniquely named versions such as `look-warm-v01` after meeting the recovery contract; never overwrite an existing candidate. For an open exploration, two purposeful alternatives are usually more useful than many barely different versions. Explain the perceptual difference rather than assigning an arbitrary “cinematic score.”
 
 Compare references by specific attributes: density, shadow hue, highlight warmth, saturation distribution and subject/background separation. Respect differences in production design, light direction, makeup and skin tone. Histogram matching alone cannot reproduce those differences. If the reference encoding is unknown, call it a qualitative reference.
 
