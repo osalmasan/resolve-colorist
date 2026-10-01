@@ -1,0 +1,6 @@
+interface:
+  display_name: "Resolve Colorist"
+  short_description: "Color balance, exposure, matching and look development"
+  default_prompt: "Use $resolve-post-production to inspect my current Resolve grade and develop a look with balanced exposure and color, preserving a recoverable baseline."
+policy:
+  allow_implicit_invocation: true
