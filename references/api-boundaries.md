@@ -8,6 +8,8 @@ Use `get_resolve_status` and `get_whats_new`, then `search_scripting_api` for a 
 
 These names describe the inspected server, not guaranteed tools on every installation. Discover the connected server first; report missing tools or state instead of inventing equivalents or opening an arbitrary project.
 
+Discover current schemas before calling tools. On the inspected server, API search uses `pattern` (not `query`), and changelog lookup requires `since`, such as `"21.0"`. Refresh these arguments if the server changes.
+
 | Surface confirmed in supplied stubs | What still needs verification |
 |---|---|
 | `Timeline.GetSelectedClips` | Selected timeline objects versus playhead clip |
@@ -23,7 +25,7 @@ These names describe the inspected server, not guaranteed tools on every install
 
 `GetNodeGraph(layerIdx)` identifies a graph for inspection; it does not select the write layer. `TimelineItem.SetCDL(CDL)` has no layer argument. Before writing, establish its target-layer semantics from connected-build documentation or an authorized isolated disposable test. If unresolved, stop the write and offer a verified UI route or manual instructions.
 
-The graph does not directly expose new-node creation or detailed Color-page wheel, curve, qualifier/window or OFX parameter setters in this snapshot. Refresh the API before declaring a future build unsupported. If using UI automation, inspect current UI state through the available computer-use workflow. Without that capability, provide concrete manual steps and stop the unsupported operation.
+The graph does not directly expose new-node creation or detailed Color-page wheel, curve, Color Warper, qualifier/window or OFX parameter setters in this snapshot. Refresh the API before declaring a future build unsupported. If using UI automation, inspect current UI state through the available computer-use workflow. Without that capability, provide concrete manual steps and stop the unsupported operation.
 
 ## Verification contract
 

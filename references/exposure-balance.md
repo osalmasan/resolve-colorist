@@ -10,6 +10,10 @@ For white balance, use a credible neutral under the subject's light when one exi
 
 ## Choose a tool based on value space
 
+Distinguish whole-image balance from selective skin or color correction. Preserve the user's chosen Color Warper workflow when appropriate; do not substitute CDL merely because it is scriptable. Inspect the existing node, Warper mode, grid and affected colors before adjustment. Verify native controls through supported UI access or provide manual steps.
+
+Samples from Jacques Crafford's supplied color-balance lesson showed Hue–Saturation Warper in HSP mode with both 6/6 and 16/16 grids. These are observed examples, not universal settings or a fully transcribed technique; see [source limitations](sources.md). Check skin in lighting context, other affected colors and multiple frames; do not force every skin tone onto a vectorscope line.
+
 Blackmagic's primary wheels, log controls and HDR tools have different tonal behavior. Their availability in the UI does not establish scripting access. Use UI-assisted controls when available and appropriate, following the installed computer-use skill. [Blackmagic Color](https://www.blackmagicdesign.com/products/davinciresolve/color)
 
 For a proven scene-linear signal, an exposure change of E stops is multiplication by 2^E. Do not apply this multiplier directly to S-Log3, DaVinci Intermediate, ACEScct, sRGB or another nonlinear encoding and describe the result as calibrated stops. Identify the node's actual input encoding. A CDL slope adjustment in an unknown space is a brightness/balance adjustment with visually assessed strength, not a known stop change.
@@ -18,8 +22,9 @@ ASC CDL uses slope, offset, power and saturation. Conceptually, SOP processes `(
 
 | Intent | Possible route | Verify |
 |---|---|---|
-| Broad brightness change | Equal-channel SOP, after space and baseline checks | Subject visibility, channel clipping, shadow noise |
-| Neutralize a cast | Small RGB SOP differences in an identified correction node | Neutral under chosen light, skin and product hues |
+| Broad brightness change | Existing exposure controls; SOP only after space and baseline checks | Subject visibility, channel clipping, shadow noise |
+| Whole-image cast | Existing primary balance controls; SOP only when its semantics and baseline are verified | Neutral under chosen light, skin and product hues |
+| Selective skin/color balance | Existing Color Warper controls through verified UI access | Other affected colors, smooth transitions and temporal consistency |
 | Shape density | SOP for broad changes; curves/HDR for finer work | Black detail, midtone separation, highlight texture |
 | Selective face/sky correction | Supported UI window/qualifier controls | Matte, edges and tracking across motion |
 | Reduce excessive chroma | Saturation trim | Important colors and adjacent-shot consistency |

@@ -96,6 +96,10 @@ Review: matching before/after frames and the relevant adjacent cuts
 
 ## Prompt examples
 
+### Balance using Color Warper
+
+> Use $resolve-post-production to inspect the selected clip's node roles and balance its skin colors using my existing Color Warper workflow. Preserve CSTs, connections and finishing effects. Establish recovery before editing. If the controls or target cannot be verified, stop and give manual steps.
+
 ### Inspect an existing grade
 
 > Use $resolve-post-production to inspect the selected clip's color pipeline, exposure, balance and node graph. Identify the strongest issue and recommend an adjustment. Do not change the grade.
@@ -134,7 +138,7 @@ The inspected API supports setting CDL values on an existing node, accessing gra
 
 CDL changes are absolute assignments. There was no CDL getter in the inspected API, so the skill cannot promise additive edits to unknown existing values or numerical readback. It protects the baseline, uses a verified correction surface, and judges the rendered result.
 
-Color-page node creation, curves, qualifiers, windows, detailed wheels and OFX controls were not directly exposed in the inspected interface. Such requests may require UI-assisted work or a prepared grade artifact. Applying a DRX or copying a grade can replace the target grade. A LUT or CDL does not reproduce selective masks, tracked corrections, grain or a complete film-emulation treatment.
+Color-page node creation, curves, Color Warper, qualifiers, windows, detailed wheels and OFX controls were not directly exposed in the inspected interface. Such requests may require UI-assisted work or a prepared grade artifact. Applying a DRX or copying a grade can replace the target grade. A LUT or CDL does not reproduce selective masks, tracked corrections, grain or a complete film-emulation treatment.
 
 The skill should report the target/version/layer/node, changes, recovery and restore procedure, inspected frame timecodes, cleanup failures and remaining uncertainty. Recovery fidelity, CDL layer targeting and capture transforms still require connected-build verification before live editing. Static package checks do not establish those behaviors. Review stills are not a substitute for checking a finished sequence on an appropriate display.
 

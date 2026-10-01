@@ -12,6 +12,7 @@ For each target capture this compact record:
 
 ```text
 Target: project / timeline / clip ID / timecode / version / layer / node
+Node map: role / tools / clip-group-timeline context / verified connections / unknowns
 Pipeline: source -> working space -> look -> output; unknowns
 Picture: visible issue and subject that must be protected
 Scopes: measured values and scale, or unavailable
@@ -28,6 +29,8 @@ For each capture, confirm the target clip and frame, record the page/timecode an
 Use waveform for tonal placement, RGB parade for channel relationships and vectorscope for chroma/hue where available. A whole-frame RGB imbalance does not establish a cast in a colored scene. Do not invent readings from a screenshot too small to read. Scopes and stills are supporting evidence, not an automatic aesthetic score. [Blackmagic Color](https://www.blackmagicdesign.com/products/davinciresolve/color)
 
 ## Recovery and iteration
+
+Map existing nodes by verified role, not fixed numbers. Node numbering is not processing order, especially around mixers or compound nodes. Labels and empty tool lists do not prove function, neutrality or enabled state. Preserve connections unless restructuring is authorized.
 
 Adopt Samuel Gursky's central pattern: inspect pictures, preserve the current grade, apply a scoped change, compare results. Treat DRX and grade copies as potentially replacing the full grade. Never use a clean diagnostic reference as permission to erase the creative baseline. [Color decision guide](https://github.com/samuelgursky/davinci-resolve-mcp/blob/main/docs/guides/color-decision-guide.md)
 
